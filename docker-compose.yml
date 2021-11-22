@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+ web:
+  container_name: django-py
+  build:
+   dockerfile: Dockerfile.dev
+  command: python /code/manage.py runserver 0.0.0.0:8000
+  volumes:
+   - .:/code
+  ports:
+   - 80:8000
+  env_file:
+   - api2/.env
